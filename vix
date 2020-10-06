@@ -1,0 +1,49 @@
+#!/bin/bash
+
+if [ $# -lt 1  ]; then
+	echo "	USAGE: $0 filename"
+	echo "	Vix is a tool for creating blank bash scripts"
+	echo "	very quickly."
+	echo "	Vix creates a file with the specified name,"
+	echo "	inserts #!/bin/bash at the top and then"
+	echo "	adds .sh to the end, makes the file executable"
+	echo "	and opens it in vim."
+	echo ""
+	echo "	Example: $0 myscript"
+	echo "	will create an executable \"myscript.sh\" and open"
+	echo "	the file with vim."
+	echo ""
+	exit
+fi
+
+#Variables for if statments because I can't make it work without them...
+o="o"
+file=$(echo "$1.sh")
+#Looking for a file in the current directory with the same name at $1"
+SEARCH=$(ls $pwd | grep $1.sh)
+
+#debug output (disabled)
+#echo "$SEARCH"
+
+
+#Overwrite or open the existing file.
+
+if [ '$2' = '$o' ]; then
+	echo "o detected. File overwritten."
+	echo "#!/bin/bash" > $1.sh
+	chmod +x $1.sh
+	vim $1.sh
+	exit
+elif [ $file  = $SEARCH ]; then
+	echo "File already exists! Opening with vim."
+	vim $1
+	exit
+fi
+
+#If the file does not exist, create it.
+
+echo "#!/bin/bash" >> $1.sh
+chmod +x $1.sh
+vim $1.sh
+
+

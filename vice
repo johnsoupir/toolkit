@@ -1,0 +1,66 @@
+#!/bin/bash
+
+#This is a tool for creating ngspice network files from a template, editing them, and then running the file all with one command.
+#Version No. 1.0 from 9-25-2020
+#by John Soupir
+
+echo "Creating $1 with deafult template."
+echo '' >> $1
+echo '*new circuit' > $1
+echo '' >> $1
+echo '*################################################' >> $1
+echo '*#                                              #' >> $1
+echo '*#  Diagram of default circuit.                 #' >> $1
+echo '*#                    b                         #' >> $1
+echo '*# a0_________________0_____________.           #' >> $1
+echo '*#  |                 |             |           #' >> $1
+echo '*#  |                 - V01         - V02       #' >> $1
+echo '*#  |                 O 0v          O 0v        #' >> $1
+echo '*#  + Vs              +             +           #' >> $1
+echo '*#  O 10v             |             |           #' >> $1
+echo '*#  -                 Z R1          Z R2        #' >> $1
+echo '*#  |                 Z 20 Ohms     Z 20 Ohms   #' >> $1
+echo '*#  |                 |             |           #' >> $1
+echo '*#  |_________________0_____________|           #' >> $1
+echo '*#                    |                         #' >> $1
+echo '*#                 0 GND                        #' >> $1
+echo '*#                                              #' >> $1
+echo '*################################################' >> $1
+echo '' >> $1
+echo '' >> $1
+echo 'V1 a 0 10' >> $1
+echo 'V01 b 0 0' >> $1
+echo 'R1 a b 5' >> $1
+
+echo '' >> $1
+echo '' >> $1
+
+echo '.control' >> $1
+echo 'op' >> $1
+echo 'listing e' >> $1
+
+echo '' >> $1
+echo '' >> $1
+
+echo '*analysis requests' >> $1
+echo 'let Vs = v(a)' >> $1
+echo 'let vR1 = v(a,b)' >> $1
+echo 'let Is = i(V1)' >> $1
+echo 'let I01 = i(V01)' >> $1
+
+echo '' >> $1
+echo '' >> $1
+echo '*outpus requests' >> $1
+echo 'print Vs vR1 Is I01' >> $1
+
+echo '' >> $1
+echo '.endc' >> $1
+
+echo '.end' >> $1
+
+echo '' >> $1
+echo "Opened in VIM"
+
+vim $1
+
+ngspice < $1
