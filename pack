@@ -1,7 +1,40 @@
 #!/bin/bash
+
+
+#Pack is a tool for quickly creating a .tgz file.
+
+#USER SETTINGS
+#Name
+NAME="John_Soupir"
+#Directory
+
+#destination
+
+#Course
+
+#date
+
 DIR=$(pwd | awk -F "/" '{print $NF}')
-tar -czvf $DIR.tgz .
-mv $DIR.tgz ~/Desktop
+
+echo ""
+echo "_______PACK_______"
+echo ""
+echo "Enter course code:"
+read COURSE
+COURSE=$(echo $COURSE | sed -e 's/ /_/g')
+echo "Pack $DIR?"
+echo "[YES][no]"
+read option
+if [ $option = "no" ]; then
+	exit
+fi
+echo ""
+echo "Packing $DIR as $COURSE\_$NAME\_$DIR.tgz"
+
+cd ..
+
+tar -czvf $COURSE\_$NAME\_$DIR.tgz $DIR
+#mv $DIR.tgz ~/Desktop
 
 
 
