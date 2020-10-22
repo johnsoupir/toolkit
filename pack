@@ -5,7 +5,7 @@
 
 #USER SETTINGS
 #Name
-NAME="John_Soupir"
+NAME="INSERT_NAME"
 #Directory
 
 #destination
@@ -35,6 +35,6 @@ cd ..
 
 tar -czvf $COURSE\_$NAME\_$DIR.tgz $DIR
 #mv $DIR.tgz ~/Desktop
-
+echo "Packed and placed in parent directory."
 
 
