@@ -10,7 +10,7 @@ fi
 
 echo "Installing everything..."
 
-sudo cp vix vice push pull pack /usr/local/bin/
+sudo cp stat vix vice push pull pack /usr/local/bin/
 
 echo "Done."
 
