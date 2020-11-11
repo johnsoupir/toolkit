@@ -1,5 +1,27 @@
 #!/bin/bash
-echo "System Status:"
-echo "IP Address: $(hostname -I)"
-date
-upower -d | grep -e 'model'  -e 'percentage' -e 'time' | sort -u
+
+DISKSIZE=$(df -h --total | tail -1 | awk '{print$2}')
+DISKUSED=$(df -h --total | tail -1 | awk '{print$3}')
+DISKFREE=$(df -h --total | tail -1 | awk '{print$4}')
+DISKPERCENT=$(df -h --total | tail -1 | awk '{print$5}')
+
+
+
+#figlet "SYSTEM STATUS"
+echo "                 SYSTEM STATUS                     "
+echo "___________________________________________________"
+echo ""
+echo " DATE: $(date)"
+echo "___________________________________________________"
+echo ""
+echo " BATTERY: "
+echo " $(upower -d | grep -e 'model'  -e 'percentage' -e 'time' | sort -u)"
+echo "___________________________________________________"
+echo ""
+echo " IP Address: $(hostname -I | awk '{print$1}')"
+echo "___________________________________________________"
+echo ""
+echo " DISK USAGE" 
+echo " Free: $DISKFREE."
+echo " Used: $DISKUSED ($DISKPERCENT) of $DISKSIZE."
+echo "___________________________________________________"

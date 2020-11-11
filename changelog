@@ -1,0 +1,14 @@
+
+Tue 10 Nov 2020 01:03:33 AM CST
+
+Updated pAcK to version 2.0!
+-New fancy title 
+-Detect if name has not been set and prompt user to enter name
+-takes input for assn title
+-checks for idiots running pack in home folder 
+
+Updated Stat to version 2.0!
+-New more organized output
+-Filters to only LAN ip address
+-Added storage display!
+

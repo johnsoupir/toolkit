@@ -1,0 +1,5 @@
+#!/bin/bash
+echo "System Status:"
+echo "IP Address: $(hostname -I)"
+date
+upower -d | grep -e 'model'  -e 'percentage' -e 'time' | sort -u
