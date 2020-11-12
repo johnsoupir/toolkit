@@ -5,85 +5,35 @@
 
 #USER SETTINGS
 #Name
-NAME="John_Soupir"
-#Output directory
-OUT="."
+NAME="INSERT_NAME"
+#Directory
 
+#destination
 
-#Get name of current directory
+#Course
+
+#date
+
 DIR=$(pwd | awk -F "/" '{print $NF}')
 
-
-#Check for name and fix...
-
-if [[ $NAME = "INSERT_NAME" ]]; then
-	echo "WARNING: YOU MUST SET YOUR NAME FIRST!"
-
-
-	if [[ $(which pack) = "/usr/local/bin/pack" ]]; then
-	echo "Pack is already installed, so you can set your name here."
-	echo "Input your full name as you would like it to appear on packed file names."
-	echo "Example: John_Doe will appear as: ENR_000_John_Doe_Final_Project.tgz"
-	echo "Type your name and press enter:"
-	read NEWNAME
-	NEWNAME=$(echo $NEWNAME | sed -e 's/ /_/g') #Remove spaces
-	echo "Enter password to update name:"
-	sed /usr/local/bin/pack -e "s/INSERT_NAME/$NEWNAME/g" > packtempfile.junk
-	sudo mv packtempfile.junk /usr/local/bin/pack
-	echo "Name change complete!"
-	echo "Name set to $NAME."
-	echo ""
-	echo ""
-	echo ""
-
-else
-	echo "Pack is not installed in /usr/local/bin/"
-	echo "Place pack in /usr/local/bin/ or edit manually"
-	exit
-fi
-fi
-
-
-#Detect idiots
-if [[ $(pwd) = ~ ]]; then
-	echo "______________PACK_WARNING______________"
-	echo "Detected pack was run in home folder!"
-	echo "YOU SHOULD NOT PACK YOUR ENTIRE COMPUTER!"
-	exit
-fi	
-
-
-echo "____________________________________"
-echo "               _        _  __      "
-echo "       _ __   / \   ___| |/ /      "
-echo "      | '_ \ / _ \ / __| ' /       "
-echo "      | |_) / ___ \ (__| . \       "
-echo "      | .__/_/   \_\___|_|\_\      "
-echo "      |_|by J.S.              v2.0 " 
-echo "____________________________________"
 echo ""
-ls | sed -e 's/ /\n/g'
-echo "____________________________________"
-echo "Pack the above files found in \"$DIR\"?"
-echo "[Y/n]"
-read option
-if [[ $option = "n"]]; then
-	exit
-fi
+echo "_______PACK_______"
 echo ""
 echo "Enter course code:"
 read COURSE
 COURSE=$(echo $COURSE | sed -e 's/ /_/g')
+echo "Pack $DIR?"
+echo "[YES][no]"
+read option
+if [ $option = "no" ]; then
+	exit
+fi
 echo ""
-echo "Enter assignment title:"
-read ASSN
-ASSN=$(echo $ASSN | sed -e 's/ /_/g')
-echo ""
-echo "Packing $DIR as $COURSE\_$NAME\_$ASSN.tgz"
+echo "Packing $DIR as $COURSE\_$NAME\_$DIR.tgz"
 
 cd ..
 
-tar -czvf $OUT/$COURSE\_$NAME\_$DIR.tgz $DIR
+tar -czvf $COURSE\_$NAME\_$DIR.tgz $DIR
 #mv $DIR.tgz ~/Desktop
 echo "Packed and placed in parent directory."
 
