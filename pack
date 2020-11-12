@@ -5,7 +5,7 @@
 
 #USER SETTINGS
 #Name
-NAME="INSERT_NAME"
+NAME="John_Soupir"
 #Output directory
 OUT="."
 
@@ -67,7 +67,7 @@ echo "____________________________________"
 echo "Pack the above files found in \"$DIR\"?"
 echo "[Y/n]"
 read option
-if [ $option = "n" ]; then
+if [[ $option = "n"]]; then
 	exit
 fi
 echo ""
