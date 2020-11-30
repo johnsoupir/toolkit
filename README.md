@@ -13,7 +13,7 @@
 <!-- ABOUT THE PROJECT -->
 ## What is it?
 
-This toolkit includes several bash scripts to automate some repetative tasks. 
+This toolkit contains several useful bash scripts to automate some repetative tasks. 
 
 
 **Vix**
@@ -115,10 +115,6 @@ and follow the prompts.
 
 <!-- ROADMAP -->
 ## Roadmap
-
-See the [open issues](https://github.com/github_username/repo_name/issues) for a list of proposed features (and known issues).
-
-
 
 <!-- LICENSE -->
 ## License
