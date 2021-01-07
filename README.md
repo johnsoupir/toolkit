@@ -57,7 +57,7 @@ If you only want one tool, manually copy it to `/usr/local/bin` after cloning.
 
 1. Clone the repo
 ```sh
-git clone https://github.com/github_username/repo_name.git
+git clone https://github.com/johnsoupir/toolkit.git
 ```
 2. cd into the cloned folder
 ```sh
