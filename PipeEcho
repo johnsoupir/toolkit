@@ -1,0 +1,27 @@
+#!/bin/bash
+
+
+
+if [[ $# -ne 3 ]]; then
+	echo "_____________________________________________________"
+	echo "USAGE: $0 <input file> <redirect> <output>"
+	echo "Where input file is a text file containing the input," 
+	echo "redirect is where your script will send the file, and"
+	echo "output is where to send your script."
+	exit 
+fi
+
+for i in $( seq 1 $(cat $1 | wc -l) ); do echo 'echo "' >> open.tmp ; done
+for i in $( seq 1 $(cat $1 | wc -l) ); do echo '" >> '$2'' >> close.tmp; done
+
+paste open.tmp $1 close.tmp >> $3
+
+rm open.tmp close.tmp
+
+>&2 echo "------------------------"
+>&2 echo "Processing Complete!"
+>&2 echo "Please remember to "
+>&2 echo "check for stray quotes"
+>&2 echo "and consider adding \\"
+
+

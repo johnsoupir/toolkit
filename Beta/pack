@@ -7,7 +7,7 @@
 #Name
 NAME="John_Soupir"
 #Output directory
-OUT="."
+OUT="~/Desktop"
 
 
 #Get name of current directory
@@ -66,8 +66,8 @@ ls | sed -e 's/ /\n/g'
 echo "____________________________________"
 echo "Pack the above files found in \"$DIR\"?"
 echo "[Y/n]"
-read OPT
-if [ $OPT = "n"]]; then
+read option
+if [[ $option  = n ]]; then
 	exit
 fi
 echo ""
@@ -79,12 +79,16 @@ echo "Enter assignment title:"
 read ASSN
 ASSN=$(echo $ASSN | sed -e 's/ /_/g')
 echo ""
+echo "____________________________________"
 echo "Packing $DIR as $COURSE\_$NAME\_$ASSN.tgz"
-
+echo ""
+echo "Working..."
 cd ..
-
-tar -czvf $OUT/$COURSE\_$NAME\_$DIR.tgz $DIR
+cp -r $DIR $COURSE\_$NAME\_$ASSN
+tar -czf ~/Desktop/$COURSE\_$NAME\_$ASSN.tgz $COURSE\_$NAME\_$ASSN
+#rm -r $COURSE\_$NAME\_
 #mv $DIR.tgz ~/Desktop
-echo "Packed and placed in parent directory."
-
-
+#echo "Packed and placed in parent directory."
+echo ""
+echo "Packed and placed in $OUT."
+echo ""

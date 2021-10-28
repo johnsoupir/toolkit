@@ -1,5 +1,9 @@
 Create: c template creation tool. Similar to vix.
-
-
+Add: ask for name while installing
+Add: option to install only specific tools
+Add: Battery health in stat
+Add: RAM usage in stat
+Add: uptime in stat
+Add: Auto escape quotes in PipeEcho by adding \" for "
 
 

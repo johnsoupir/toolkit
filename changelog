@@ -12,3 +12,19 @@ Updated Stat to version 2.0!
 -Filters to only LAN ip address
 -Added storage display!
 
+Updated installer
+-Now with fancy install screen!
+
+Sat 14 Nov 2020 03:09:48 PM CST
+
+-Rolled back pack to version 1
+
+-Fixed what I broke in pack v2.
+Pack no longer complains about the if statement when asking to proceed.
+
+-Created "Beta" versions folder to hold work in progress versions (like pack
+v2)
+
+-All old verions will now be kept in "Old_versions" in case I break something
+again.
+
