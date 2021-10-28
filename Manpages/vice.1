@@ -4,17 +4,19 @@ Vice - Create and run ngspice simulations VERY quickly and easily.
 .SH SYNOPSIS
 \fBvice\fP \fI<name_of_simulation> <template>\fP
 .SH DESCRIPTION
-\fBvix\fP creates a file with #!/bin/bash at the top, makes it executable and opens it with vim. All with a single command. \n 
-If a given file already exists vix will open it and not overwrite it. 
+\fBvice\fP is a tool for making changes and running NGSPICE simulations very quickly. When used to \n 
+open a file it will open in the chosen editor, then imediatly upon exiting the editor the simulation will be run. There are also templates for creating new net files. 
 
 
 .SS Options
 .TP
-vix <name_of_file> o - If you wish to overwrite an existing file of the same name include an "o" at the end of your command.
+vice <name_of_file> - opens specified file, then runs simulation upon exiting editor.
+vice <name_of_file> <template> - creates new file from given template
+vice ls - list available template files
 .SH FILES
 .TP
-vix (if auto installed) should be found in /usr/local/bin/
+vice (if auto installed) should be found in /usr/local/bin/
 .SH "SEE ALSO"
-csaw, vice
+csaw, vix
 .SH BUGS
 There are no bugs, only features!
